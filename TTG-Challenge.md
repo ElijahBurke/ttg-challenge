@@ -32,8 +32,6 @@ If we had a relational database, the model for this would be a two column table,
 
 ## Winner
 ### desc
-Once we were ready to pick a winner, we need to select a winner at random. If we don't already know the amount of entries (if we're closing based on time rather than max entries), then we check the length of the table/collection in the database, and pick a random number between one and the max. We then retrieve that entry from the database, and have the user information at hand to contact the winner. We use a loop to do this for as many tickets as we have available, first checking if the winning number has already come up before decrementing the number of tickets left available. Below is a simple implementation of this, where we store each winning entry in an object, with the winningNumber as the key, so we can have a fast access to see if it's already been picked.
-
 Once we're ready to pick a winner, we need to pick as many different random numbers as we have tickets available. To do this we can follow this process in a while loop, which terminates when there are no more tickets:
   - pick a random number
   - check it hasn't been picked already
